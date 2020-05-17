@@ -7,3 +7,52 @@
 #canvas {
  display: block;
 }
+
+#canvas-wrap {
+    position: relative;
+}
+
+
+.colorPalette {
+    display: flex;
+    flex-direction: column;
+}
+
+.colorPalette {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+button {
+    width: 40px;
+    height: 20px;
+}
+
+button:first-child{
+    background-color: Red;
+}
+button:nth-child(2){
+    background-color: orange;
+}
+button:nth-child(3){
+    background-color: yellow;
+}
+button:nth-child(4){
+    background-color: green;
+}
+button:nth-child(5){
+    background-color: blue;
+}
+button:nth-child(6){
+    background-color: indigo;
+}
+button:nth-child(7){
+    background-color: violet;
+}
+button:nth-child(8){
+    background-color: white;
+}
+button:last-child {
+    background-color: black;
+}

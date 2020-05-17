@@ -10,21 +10,47 @@
 </head>
 
 <body>
-    <canvas id="canvas" width="100" height="100"></canvas>
+    <div id="canvas-wrap">
+        <canvas id="canvas" width="100" height="100"></canvas>
+        <!-- 我自己也嫌弃代码重复垃圾，等以后学到新的知识再来优化吧，Flag～ -->
+        <div class="colorPalette">
+            <button id="red" onclick="getButtonColor(id)"></button>
+            <button id="orange" onclick="getButtonColor(id)"></button>
+            <button id="yellow" onclick="getButtonColor(id)"></button>
+            <button id="green" onclick="getButtonColor(id)"></button>
+            <button id="blue" onclick="getButtonColor(id)"></button>
+            <button id="indigo" onclick="getButtonColor(id)"></button>
+            <button id="violet" onclick="getButtonColor(id)"></button>
+            <button id="white" onclick="getButtonColor(id)"></button>
+            <button id="black" onclick="getButtonColor(id)"></button>
+        </div>
+    </div>
     <script>
+        function getButtonColor(color) {
+            ctx.strokeStyle = color
+            if (color.toString() === 'white') {
+                canvasLineWidth = 40
+            } else {
+                canvasLineWidth = 8
+            }
+        }
+
+
         let painting = false
         //let paintingRadius = 10
+        let canvasLineWidth = 8
         let last
+
 
         var canvas = document.getElementById("canvas");
         canvas.width = document.documentElement.clientWidth;
         canvas.height = document.documentElement.clientHeight;
 
         var ctx = canvas.getContext("2d");
-        ctx.fillStyle = "black";
-        ctx.strokeStyle = "none";
+        //ctx.fillStyle = "blue";
+        ctx.strokeStyle = "black";
         ctx.lineCap = "round";
-        ctx.lineWidth = 10;
+        
 
         var isTouchDevice = 'ontouchstart' in document.documentElement;
         if (isTouchDevice) {
@@ -58,6 +84,7 @@
         }
 
         function drawLine(x1, y1, x2, y2) {
+            ctx.lineWidth = canvasLineWidth;
             ctx.beginPath();
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
